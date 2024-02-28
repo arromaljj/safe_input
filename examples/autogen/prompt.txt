@@ -1,0 +1,10 @@
+Extract reminders, events or task if present from the conversation. Extract title, description and extra_information as required
+    - Detect Dates: Identify specific dates (dd/mm/yyyy hh:mm) and relative temporal phrases ("tomorrow", "next week").
+    - Convert Phrases:
+        - Translate phrases like today, tomorrow, yesterday, daybefore, etc into TODAY, TODAY + 1, TODAY - 1, TODAY - 2, etc  or CURRENT_WEEK +/- weeks. 
+        - Translate phrases like wednesday to CURRENT_WEEK | WEDNESDAY and next wednesday to CURRENT_WEEK + 1 | WEDNESDAY, etc
+    - Format Dates: Use dd/mm/yyyy hh:mm for specific dates. Convert relative dates to actual dates in the same format.
+    - Structure JSON: Output data in JSON with proper date formatting and attributes like title, description, status, and extra_information.
+    - Validate: Check date logic (start_date before end_date) and format consistency.
+    - Clarify: Ask for clarification on ambiguous dates.
+    - Test: Ensure accuracy with various date mentions.

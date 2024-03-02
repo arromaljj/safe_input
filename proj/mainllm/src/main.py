@@ -5,8 +5,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 # access_token = "hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # Replace with your Hugging Face token if required
 
 # Load model and tokenizer
-model = AutoModelForCausalLM.from_pretrained("cognitivecomputations/Wizard-Vicuna-13B-Uncensored")
-tokenizer = AutoTokenizer.from_pretrained("cognitivecomputations/Wizard-Vicuna-13B-Uncensored")
+model = AutoModelForCausalLM.from_pretrained("cognitivecomputations/Wizard-Vicuna-13B-Uncensored", cache_dir="./.cache")
+tokenizer = AutoTokenizer.from_pretrained("cognitivecomputations/Wizard-Vicuna-13B-Uncensored", cache_dir="./.cache")
 
 # Ensure the model is on the appropriate device (CPU or GPU if available)
 device = "cuda" if torch.cuda.is_available() else "cpu"

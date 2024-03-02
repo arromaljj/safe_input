@@ -5,12 +5,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 # access_token = "hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # Replace with your Hugging Face token if required
 
 # Load model and tokenizer
-# model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
-# tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
+model = AutoModelForCausalLM.from_pretrained("cognitivecomputations/Wizard-Vicuna-13B-Uncensored")
+tokenizer = AutoTokenizer.from_pretrained("cognitivecomputations/Wizard-Vicuna-13B-Uncensored")
 
 # Ensure the model is on the appropriate device (CPU or GPU if available)
-# device = "cuda" if torch.cuda.is_available() else "cpu"
-# model.to(device)
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model.to(device)
 
 
 
@@ -25,11 +25,11 @@ app = FastAPI()
 
 
 def generate(prompt: str):
-    # inputs = tokenizer(prompt, return_tensors="pt").to(device)
-    # output = model.generate(**inputs, max_new_tokens=50, do_sample=True)
-    # generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
+    output = model.generate(**inputs, max_new_tokens=50, do_sample=True)
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
 
-    return {"generated_text": prompt }
+    return {"generated_text": generated_text }
 
 
 

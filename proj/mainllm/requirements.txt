@@ -8,4 +8,4 @@ ctransformers
 fastapi
 uvicorn
 pydantic
-
+python-dotenv

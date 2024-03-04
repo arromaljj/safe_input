@@ -3,5 +3,7 @@ services:
   llm:
     build: .
     tty: true
+    volumes:
+      - ./:/mainllm
     ports:
       - "8000:8000"
